@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-light">
+    <div class="flex justify-center h-screen items-center">
+      <div class="bg-white rounded-2xl shadow-black shadow-lg">
+        <div class="p-8">
+          <div class="flex justify-center">
+            <h1 class="">
+              <svg
+                class="h-40 w-40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    opacity="0.5"
+                    d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                    fill="#1c71d8"
+                  ></path>
+                  <path
+                    d="M16.807 19.0112C15.4398 19.9504 13.7841 20.5 12 20.5C10.2159 20.5 8.56023 19.9503 7.193 19.0111C6.58915 18.5963 6.33109 17.8062 6.68219 17.1632C7.41001 15.8302 8.90973 15 12 15C15.0903 15 16.59 15.8303 17.3178 17.1632C17.6689 17.8062 17.4108 18.5964 16.807 19.0112Z"
+                    fill="#1c71d8"
+                  ></path>
+                  <path
+                    d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3432 6 9.00004 7.34315 9.00004 9C9.00004 10.6569 10.3432 12 12 12Z"
+                    fill="#1c71d8"
+                  ></path>
+                </g>
+              </svg>
+            </h1>
+          </div>
+          <div class="mt-5 text-center">
+            <input
+              id="input"
+              type="text"
+              class="border-b-2 text-center border-black font-bold focus:outline-none"
+              placeholder="Enter your UserName"
+            />
+            <button>
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 bg-teal-100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M12 1C8.96243 1 6.5 3.46243 6.5 6.5C6.5 9.53757 8.96243 12 12 12C15.0376 12 17.5 9.53757 17.5 6.5C17.5 3.46243 15.0376 1 12 1Z"
+                    fill="#1c71d8"
+                  ></path>
+                  <path
+                    d="M7 14C4.23858 14 2 16.2386 2 19V22C2 22.5523 2.44772 23 3 23H21C21.5523 23 22 22.5523 22 22V19C22 16.2386 19.7614 14 17 14H7Z"
+                    fill="#1c71d8"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+            <p class="text-red-800" id="error"></p>
+            <br />
+            <div class="text-center">
+              <input
+                id="pass"
+                type="password"
+                class="mt-10 border-b-2 border-black text-center font-bold focus:outline-none"
+                placeholder="Enter your Password"
+              />
+
+              <button id="show">
+                <svg
+                  class="h-8 w-8 bg-teal-100"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#1c71d8"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M0 0h48v48H0z" fill="none"></path>
+                    <g id="Shopicon">
+                      <circle cx="24" cy="24" r="4"></circle>
+                      <path
+                        d="M24,38c12,0,20-14,20-14s-8-14-20-14S4,24,4,24S12,38,24,38z M24,16c4.418,0,8,3.582,8,8s-3.582,8-8,8s-8-3.582-8-8 S19.582,16,24,16z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </button>
+              <p id="error2" class="text-red-800"></p>
+            </div>
+
+            <button
+              class="w-full py-1 mt-10 bg-teal-500 shadow-lg shadow-teal-500/50 rounded-full"
+              id="submit"
+            >
+              Submit
+            </button>
+            <p id="success" class="mt-10 font-bold text-green-500"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let input = document.getElementById("input");
+      let error = document.getElementById("error");
+      let error2 = document.getElementById("error2");
+      let success = document.getElementById("success");
+      let submit = document.getElementById("submit");
+      let pass = document.getElementById("pass");
+      let show = document.getElementById("show");
+
+      submit.addEventListener("click", function () {
+        let valid = true;
+        error.textContent = "";
+        error2.textContent = "";
+        success.textContent = "";
+
+        if (input.value.trim() === "") {
+          error.textContent = "Username must be written";
+          valid = false;
+        } else if (input.value.length <= 3) {
+          error.textContent = "Username must be greater than 3 letters";
+          valid = false;
+        }
+
+        if (pass.value.trim() === "") {
+          error2.textContent = "Password must be written";
+          valid = false;
+        } else if (pass.value.length <= 3) {
+          error2.textContent = "Password must be greater than 3 letters";
+          valid = false;
+        }
+        if (valid) {
+          success.textContent = "Successfully submitted";
+        }
+      });
+      show.addEventListener("click", function () {
+        if (pass.type === "password") {
+          pass.type = "text";
+        } else {
+          pass.type = "password";
+        }
+      });
+    </script>
+  </body>
+</html>
